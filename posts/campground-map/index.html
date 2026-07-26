@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campground Map | being outdoor</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="site-title" href="../">being outdoor</a>
+        <span class="tagline">is about hiking, traveling, camping and with kids</span>
+      </div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../london/">City Tours</a>
+        <a href="../#off-road-adventures">Off-Road Adventures</a>
+        <a href="../about-this-blog/">About</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <article class="container post-content">
+  <header class="post-header">
+    <h1 class="post-title">Campground Map</h1>
+    <p class="post-meta">2017-06-02 · Maps</p>
+  </header>
+  <div class="entry-content">
+    &nbsp;
+
+This is a map of all campgrounds I visited and plan to go to. Each campground has a link to my blogentry.
+
+<iframe class="googlemaps-embed" src="https://www.google.com/maps/d/embed?mid=19z-i_9Fd1JovAFocbJk2YGl9aAQ&amp;w=640&amp;h=480" width="100%" height="480px" style="border:0;max-width:100%" allowfullscreen="" loading="lazy"></iframe>
+
+Having privacy and space ot Campground neighbors is very important to me. My Campground ratings are based on privacy and noise level.
+
+green: beautiful campground, private sites
+
+blue: great campground, camp neibors are closer
+
+orange: campground is ok, might be close to a noisy street or RV's
+
+red: I would not go again, too crowed and noisy, no privacy
+
+&nbsp;
+
+[gallery ids="713,712,714,715" columns="4"]
+  </div>
+</article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© being outdoor — is about hiking, traveling, camping and with kids</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+    }
+  </script>
+</body>
+</html>

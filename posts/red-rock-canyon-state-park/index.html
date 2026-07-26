@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Rock Canyon State Park | being outdoor</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="site-title" href="../">being outdoor</a>
+        <span class="tagline">is about hiking, traveling, camping and with kids</span>
+      </div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../london/">City Tours</a>
+        <a href="../#off-road-adventures">Off-Road Adventures</a>
+        <a href="../about-this-blog/">About</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <article class="container post-content">
+  <header class="post-header">
+    <h1 class="post-title">Red Rock Canyon State Park</h1>
+    <p class="post-meta">2015-09-17 · Red Rock Canyon SP</p>
+  </header>
+  <div class="entry-content">
+    I only drove by on my way to Death Valley, but this State Park is on my "Places to go" List.
+
+<hr />
+
+<a href="https://beingoutdoor.wordpress.com/wp-content/uploads/2015/09/dsc_3175-copy.jpg"><img class="aligncenter wp-image-132 size-full" src="https://beingoutdoor.wordpress.com/wp-content/uploads/2015/09/dsc_3175-copy.jpg" alt="DSC_3175 copy" width="1504" height="1000" /></a>
+  </div>
+</article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© being outdoor — is about hiking, traveling, camping and with kids</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About this blog.... | being outdoor</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="site-title" href="./">being outdoor</a>
+        <span class="tagline">is about hiking, traveling, camping and with kids</span>
+      </div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="./">Home</a>
+        <a href="./london/">City Tours</a>
+        <a href="./#off-road-adventures">Off-Road Adventures</a>
+        <a href="./about-this-blog/">About</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <article class="container page-content">
+  <h1 class="page-title">About this blog....</h1>
+  Being outdoor and going camping is one of the most important things I like to do. I started this blog because I was looking for a way to keep track of places I visited, where I would go again, which place I would avoid and to share my experience.
+
+We (me and my family) usually go camping every 3 to 4 weeks, we started when my oldest son was 1 year old. My second son had his first camping trip and road trip from the bay area to Death Valley when he was 6 Month old.
+
+If you have questions or comments, feel free to comment, or contact me.
+
+In the Menu are some Categories:
+
+National Parks: You can look through my blog entries Park by Park
+
+State Parks: You can look through my blog entries State Park by State Park
+
+Campgrounds: All Campgrounds are listed here
+
+Maps: You find different maps I created with links to the blog entires
+
+Hikes: All Hike blogs are in this category.
+<p style="text-align:left;"><a href="https://beingoutdoor.wordpress.com/wp-content/uploads/2015/09/dsc_9357.jpg"><img class="aligncenter size-full wp-image-195" src="https://beingoutdoor.wordpress.com/wp-content/uploads/2015/09/dsc_9357.jpg" alt="DSC_9357" width="768" height="350" /></a></p>
+</article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© being outdoor — is about hiking, traveling, camping and with kids</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+    }
+  </script>
+</body>
+</html>
