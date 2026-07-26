@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moky's Travel Diary</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Moky's Travel Diary</h1>
+      <nav class="main-nav">
+        <a href="#trips">Trips</a>
+        <a href="#itinerary">Itinerary</a>
+        <a href="#diary">Diary</a>
+        <a href="#notes">Notes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="hero-text">Plan the journey. Keep the memories.</p>
+    </section>
+
+    <section id="trips" class="panel">
+      <div class="panel-header">
+        <h2>Upcoming Trips</h2>
+        <button class="btn btn-small" id="add-trip-btn">+ Add Trip</button>
+      </div>
+      <div class="trips-grid" id="trips-list">
+        <!-- trips render here -->
+      </div>
+    </section>
+
+    <section id="itinerary" class="panel">
+      <div class="panel-header">
+        <h2>Itinerary</h2>
+        <button class="btn btn-small" id="add-event-btn">+ Add Event</button>
+      </div>
+      <div class="itinerary-list" id="itinerary-list">
+        <!-- itinerary renders here -->
+      </div>
+    </section>
+
+    <section id="diary" class="panel">
+      <div class="panel-header">
+        <h2>Diary Entries</h2>
+        <button class="btn btn-small" id="add-entry-btn">+ New Entry</button>
+      </div>
+      <div class="diary-grid" id="diary-list">
+        <!-- diary entries render here -->
+      </div>
+    </section>
+
+    <section id="notes" class="panel">
+      <div class="panel-header">
+        <h2>Notes & Ideas</h2>
+        <button class="btn btn-small" id="add-note-btn">+ Add Note</button>
+      </div>
+      <div class="notes-list" id="notes-list">
+        <!-- notes render here -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made for Moky 🌿</p>
+  </footer>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <h3 id="modal-title">Add</h3>
+      <form id="modal-form"></form>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="modal-cancel">Cancel</button>
+        <button type="submit" class="btn" id="modal-save">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
