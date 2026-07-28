@@ -283,6 +283,20 @@ a[href^="#"] img,
 }
 
 /* Responsive */
+
+  /* Keep day-by-day / theme tiles square on all widths.
+     aspect-ratio alone can be overridden by content; add min-height:0
+     and explicit aspect-ratio to lock it. */
+  a[style*="aspect-ratio:1/1"] {
+    aspect-ratio: 1 / 1 !important;
+    min-height: 0 !important;
+  }
+  /* Prevent the absolute label from blowing past the tile */
+  a[style*="aspect-ratio:1/1"] > span {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
 @media (max-width: 720px) {
   .header-inner { height: auto; padding: 14px 24px; flex-wrap: wrap; }
   .nav-toggle { display: block; margin-left: auto; }
