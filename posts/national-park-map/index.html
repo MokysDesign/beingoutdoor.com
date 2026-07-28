@@ -35,7 +35,7 @@
   <div class="entry-content">
     This is the map of National Parks I visited, each dot is going to have a link to my blog soon.
 
-<iframe class="googlemaps-embed" src="https://www.google.com/maps/d/embed?mid=1DuA4tJV4I1vZw0sRarB2H6O5ioA&amp;w=640&amp;h=480" width="100%" height="480px" style="border:0;max-width:100%" allowfullscreen="" loading="lazy"></iframe>
+<div class="map-embed"><div class="map-overlay" role="button" tabindex="0" aria-label="Click to interact with map"><span>Click to interact</span></div><iframe class="googlemaps-embed" src="https://www.google.com/maps/d/embed?mid=1DuA4tJV4I1vZw0sRarB2H6O5ioA&amp;w=640&amp;h=480" width="100%" height="480px" style="border:0;max-width:100%" allowfullscreen="" loading="lazy"></iframe></div>
 
  
 
@@ -59,6 +59,12 @@
         toggle.setAttribute('aria-expanded', open);
       });
     }
+    // Activate maps on click so wheel-scrolls the page
+    document.querySelectorAll('.map-embed').forEach(function(el){
+      var overlay = el.querySelector('.map-overlay');
+      if (!overlay) return;
+      overlay.addEventListener('click', function(){ el.classList.add('active'); });
+    });
   </script>
 </body>
 </html>

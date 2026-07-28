@@ -218,18 +218,58 @@ img { max-width: 100%; height: auto; display: block; }
 .alignleft { float: left; margin: 0 18px 18px 0; }
 .alignright { float: right; margin: 0 0 18px 18px; }
 
-/* Maps */
-.googlemaps-embed,
-.wp-block-embed iframe,
+/* Maps — full-bleed, click-to-activate so wheel-scrolls the page */
+.map-embed {
+  position: relative;
+  margin: 24px -40px;          /* escape .page-content 40px padding */
+  width: calc(100% + 80px);
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
 .map-embed iframe {
   display: block;
-  margin: 24px auto;
+  width: 100%;
+  height: 480px;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
   max-width: 100%;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
 }
-
-.map-embed { width: 100%; text-align: center; }
+.map-embed .map-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0);
+}
+.map-embed .map-overlay span {
+  background: rgba(31, 29, 27, 0.85);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.map-embed:hover .map-overlay span,
+.map-embed:focus-within .map-overlay span {
+  opacity: 1;
+}
+.map-embed.active .map-overlay { display: none; }
+/* On phones, the page-content padding shrinks to 24px */
+@media (max-width: 720px) {
+  .map-embed {
+    margin: 20px -24px;
+    width: calc(100% + 48px);
+  }
+  .map-embed iframe { height: 360px; }
+}
 
 /* Card grids from inline WP styles */
 .wp-block-columns {
