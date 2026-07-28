@@ -263,6 +263,19 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .map-embed.active .map-overlay { display: none; }
 /* On phones, the page-content padding shrinks to 24px */
+/* On the homepage, the map is a direct child of <main> (not inside .page-content).
+   Match the width of the card grids (1013px) so it doesn't bleed to the viewport edges. */
+.site-main > .map-embed {
+  margin: 24px auto;
+  width: 100%;
+  max-width: 1013px;
+}
+.site-main > .map-embed iframe {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
 @media (max-width: 720px) {
   .map-embed {
     margin: 20px -24px;
@@ -336,6 +349,19 @@ a[href^="#"] img,
     max-width: 100%;
     overflow: hidden;
   }
+
+/* On the homepage, the map is a direct child of <main> (not inside .page-content).
+   Match the width of the card grids (1013px) so it doesn't bleed to the viewport edges. */
+.site-main > .map-embed {
+  margin: 24px auto;
+  width: 100%;
+  max-width: 1013px;
+}
+.site-main > .map-embed iframe {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
 
 @media (max-width: 720px) {
   .header-inner { height: auto; padding: 14px 24px; flex-wrap: wrap; }
