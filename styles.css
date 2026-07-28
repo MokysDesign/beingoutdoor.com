@@ -276,13 +276,7 @@ img { max-width: 100%; height: auto; display: block; }
   box-shadow: var(--shadow);
 }
 
-@media (max-width: 720px) {
-  .map-embed {
-    margin: 20px -24px;
-    width: calc(100% + 48px);
-  }
-  .map-embed iframe { height: 360px; }
-}
+
 
 /* Card grids from inline WP styles */
 .wp-block-columns {
@@ -350,18 +344,7 @@ a[href^="#"] img,
     overflow: hidden;
   }
 
-/* On the homepage, the map is a direct child of <main> (not inside .page-content).
-   Match the width of the card grids (1013px) so it doesn't bleed to the viewport edges. */
-.site-main > .map-embed {
-  margin: 24px auto;
-  width: 100%;
-  max-width: 1013px;
-}
-.site-main > .map-embed iframe {
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-}
+
 
 @media (max-width: 720px) {
   .header-inner { height: auto; padding: 14px 24px; flex-wrap: wrap; }
@@ -380,6 +363,8 @@ a[href^="#"] img,
   .page-title,
   .post-title { font-size: 28px; }
   .wp-block-cover { min-height: 260px; padding: 36px 20px; }
+  .map-embed { margin: 20px -24px; width: calc(100% + 48px); }
+  .map-embed iframe { height: 360px; }
 
   /* Drop place cards from 4-per-row to 2-per-row on phones */
   a[style*="flex:0 0 calc(25% - 9px)"] { flex: 0 0 calc(50% - 8px) !important; }
