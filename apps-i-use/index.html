@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apps I use — being outdoor</title>
+  <meta name="description" content="The phone apps I actually use on trips — maps, packing, groceries, trail guides, and wildfire tracking. Tested by me, kept because they earn the space.">
+  <meta name="theme-color" content="#2a8a8a">
+  <meta property="og:title" content="Apps I use — being outdoor">
+  <meta property="og:description" content="The phone apps I actually use on trips — maps, packing, groceries, trail guides, and wildfire tracking. Tested by me, kept because they earn the space.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://beingoutdoor.com/apps-i-use/">
+  <meta property="og:image" content="https://beingoutdoor.com/images/2026/07/about-lake.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Apps I use — being outdoor">
+  <meta name="twitter:description" content="The phone apps I actually use on trips — maps, packing, groceries, trail guides, and wildfire tracking. Tested by me, kept because they earn the space.">
+  <meta name="twitter:image" content="https://beingoutdoor.com/images/2026/07/about-lake.jpg">
+  <link rel="canonical" href="https://beingoutdoor.com/apps-i-use/">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="site-title" href="../">being outdoor</a>
+        <span class="tagline">Travel diary & photography</span>
+      </div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../#off-road-adventures">Off-Road Adventures</a>
+        <a href="../#road-trips">Road Trips</a>
+        <a href="../#city-tours">City Tours</a>
+        <a href="../about-this-blog/">About</a>
+        <a href="https://surroundyou.me/shop-wall-art/" target="_blank" rel="noopener">Shop</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <article class="container page-content">
+  <h1 class="page-title">Apps I use</h1>
+  <p>These are the phone apps that have actually earned the space on my home screen. I test new ones every trip, and most get deleted. The ones below stayed because they made something easier or safer.</p>
+  <p>If you have a favorite I should try, drop me a note.</p>
+
+  <h2 id="guru-maps">Guru Maps Pro</h2>
+  <p>Offline topo maps. I keep the maps of everywhere I'm going downloaded before I leave cell range. Free version is fine for casual use, Pro is worth it if you do real backcountry or off-road driving.</p>
+  <p><em>Why I keep it:</em> [your reason]</p>
+
+  <h2 id="packing-pro">Packing Pro</h2>
+  <p>Trip packing lists. Yes, it's a packing list app. No, I don't think it's overkill. Per-trip lists, per-person lists, the kind of thing that means I never forget the camp-stove fuel on a 4-day trip.</p>
+  <p><em>Why I keep it:</em> [your reason]</p>
+
+  <h2 id="paprika">Paprika</h2>
+  <p>Recipe manager. I run the kitchen planner through here — meal plans, shopping lists, the family recipes. Syncs across phone and laptop. Not specifically a travel app, but on longer trips it's how I keep "what are we eating Thursday" sorted when we're driving.</p>
+  <p><em>Why I keep it:</em> [your reason]</p>
+
+  <h2 id="watch-duty">Watch Duty</h2>
+  <p>Wildfire alerts. Pulls from official fire sources and pushes notifications when there's a fire within a radius you set. I have it set to 50 miles. Free, no ads, runs on donations.</p>
+  <p><em>Why I keep it:</em> [your reason]</p>
+
+  <h2 id="out-groceries">Out Groceries</h2>
+  <p>Grocery list and meal planning. Lighter than Paprika for the "we ran out of milk" case. I use Paprika for the trip-level planning and Out Groceries for the running grocery list back home.</p>
+  <p><em>Why I keep it:</em> [your reason]</p>
+
+  <h2 id="gypsy-guide">Gypsy Guide</h2>
+  <p>Audio tour guides for road trips. Think of it as a personal tour guide in your phone that knows the local history of wherever you're driving. Works offline once downloaded. Covers a lot of US national parks and western road trips.</p>
+  <p><em>Why I keep it:</em> [your reason]</p>
+
+  <p style="margin-top:36px;color:#6b6560;font-size:0.9em">Last updated: July 2026. I'll add to this list as I try new apps that earn the space.</p>
+
+</article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© being outdoor — Travel diary & photography</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+    }
+    // Activate maps on click so wheel-scrolls the page
+    document.querySelectorAll('.map-embed').forEach(function(el){
+      var overlay = el.querySelector('.map-overlay');
+      if (!overlay) return;
+      overlay.addEventListener('click', function(){ el.classList.add('active'); });
+    });
+  </script>
+</body>
+</html>
