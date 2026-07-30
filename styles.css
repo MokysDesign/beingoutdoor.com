@@ -371,3 +371,38 @@ a[href^="#"] img,
   /* Drop theme tiles (33%) from 3-per-row to 2-per-row on phones */
   a[style*="flex:0 0 calc(33.333% - 11px)"] { flex: 0 0 calc(50% - 8px) !important; }
 }
+
+/* Apps I use page — headline row with app icon + heading */
+.app-headline {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: flex-start;
+  margin: 32px 0 12px;
+}
+.app-headline .app-icon-link {
+  display: inline-block;
+  flex-shrink: 0;
+  line-height: 0;
+}
+.app-headline .app-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(31, 29, 27, 0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.app-headline .app-icon-link:hover .app-icon,
+.app-headline .app-icon-link:focus-visible .app-icon {
+  transform: scale(1.04);
+  box-shadow: 0 4px 14px rgba(31, 29, 27, 0.18);
+}
+.app-headline h2.has-icon {
+  margin: 0;
+  text-align: left;
+  font-size: 26px;
+}
+@media (max-width: 480px) {
+  .app-headline .app-icon { width: 52px; height: 52px; }
+  .app-headline h2.has-icon { font-size: 22px; }
+}
