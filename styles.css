@@ -407,31 +407,47 @@ a[href^="#"] img,
   .app-headline h2.has-icon { font-size: 22px; }
 }
 
-/* Apps I use page — icon row (for consolidating multiple apps under one heading) */
-.app-icon-row {
+/* Apps I use page — trio layout (icon + name below, three across) */
+.app-trio {
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
+  flex-wrap: nowrap;
   justify-content: center;
-  margin: 0 0 18px;
+  gap: 28px;
+  margin: 8px 0 22px;
+  padding: 18px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.app-icon-row .app-icon-link {
-  display: inline-block;
-  flex-shrink: 0;
-  line-height: 0;
+.app-trio .app-trio-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.95em;
+  gap: 8px;
+  transition: transform 0.18s ease;
 }
-.app-icon-row .app-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(31, 29, 27, 0.12);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+.app-trio .app-trio-item:hover,
+.app-trio .app-trio-item:focus-visible {
+  transform: translateY(-2px);
 }
-.app-icon-row .app-icon-link:hover .app-icon,
-.app-icon-row .app-icon-link:focus-visible .app-icon {
-  transform: scale(1.04);
-  box-shadow: 0 4px 14px rgba(31, 29, 27, 0.18);
+.app-trio .app-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(31, 29, 27, 0.10);
+}
+.app-trio .app-trio-name {
+  line-height: 1;
 }
 @media (max-width: 480px) {
-  .app-icon-row .app-icon { width: 56px; height: 56px; }
+  .app-trio { gap: 18px; padding: 14px 8px; }
+  .app-trio .app-icon { width: 56px; height: 56px; }
+  .app-trio .app-trio-name { font-size: 0.85em; }
 }
