@@ -370,8 +370,8 @@ a[href^="#"] img,
   a[style*="flex:0 0 calc(25% - 9px)"] { flex: 0 0 calc(50% - 8px) !important; }
   /* Drop theme tiles (33%) from 3-per-row to 2-per-row on phones */
   a[style*="flex:0 0 calc(33.333% - 11px)"] { flex: 0 0 calc(50% - 8px) !important; }
-  /* Apps I use tiles (25%) — also drop to 2-per-row on phones */
-  a[style*="flex:0 0 calc(25% - 9px)"] { flex: 0 0 calc(50% - 8px) !important; }
+  /* Apps I use tiles — drop to 2-per-row on phones (select via class, not inline attr) */
+  .app-tile { flex: 0 0 calc(50% - 8px) !important; }
 }
 
 /* Apps I use page — headline row with app icon + heading */
@@ -454,8 +454,73 @@ a[href^="#"] img,
   .app-trio .app-trio-name { font-size: 0.85em; }
 }
 
-/* Apps I use tiles — lift on hover */
+/* Apps I use tiles — flex column layout */
+.app-tile {
+  flex: 0 0 calc(25% - 9px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  transition: transform .15s ease, box-shadow .15s ease;
+  /* override the earlier app-headline / .app-tile:focus-visible block */
+}
+.app-tile .app-tile-name {
+  flex: 0 0 22%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #1f1d1b;
+  font-weight: 700;
+  font-size: .9em;
+  line-height: 1.1;
+  padding: 4px 6px 0;
+}
+.app-tile .app-tile-icon {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  min-height: 0;
+}
+.app-tile .app-tile-icon img {
+  max-width: 70%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+}
+.app-tile .app-tile-blurb {
+  flex: 0 0 22%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #6b6560;
+  font-size: .8em;
+  line-height: 1.15;
+  padding: 0 6px 4px;
+}
+.app-tile-placeholder .app-tile-icon {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1em;
+  text-shadow: 0 1px 4px rgba(0,0,0,.35);
+  line-height: 1.2;
+}
 .app-tile:hover, .app-tile:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(31, 29, 27, 0.10);
+}
+@media (max-width: 480px) {
+  .app-tile .app-tile-name { font-size: .82em; }
+  .app-tile .app-tile-blurb { font-size: .72em; }
 }
