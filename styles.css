@@ -453,3 +453,9 @@ a[href^="#"] img,
   .app-trio .app-icon { width: 56px; height: 56px; }
   .app-trio .app-trio-name { font-size: 0.85em; }
 }
+
+/* Apps I use tiles — lift on hover */
+.app-tile:hover, .app-tile:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(31, 29, 27, 0.10);
+}
