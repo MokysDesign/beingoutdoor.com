@@ -406,3 +406,32 @@ a[href^="#"] img,
   .app-headline .app-icon { width: 52px; height: 52px; }
   .app-headline h2.has-icon { font-size: 22px; }
 }
+
+/* Apps I use page — icon row (for consolidating multiple apps under one heading) */
+.app-icon-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin: 0 0 18px;
+}
+.app-icon-row .app-icon-link {
+  display: inline-block;
+  flex-shrink: 0;
+  line-height: 0;
+}
+.app-icon-row .app-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(31, 29, 27, 0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.app-icon-row .app-icon-link:hover .app-icon,
+.app-icon-row .app-icon-link:focus-visible .app-icon {
+  transform: scale(1.04);
+  box-shadow: 0 4px 14px rgba(31, 29, 27, 0.18);
+}
+@media (max-width: 480px) {
+  .app-icon-row .app-icon { width: 56px; height: 56px; }
+}
