@@ -198,6 +198,11 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 40px 0 16px;
 }
 
+/* Anchor-link offset: clear sticky 76px header + small breathing room */
+[id]:is(h1, h2, h3, h4) {
+  scroll-margin-top: 92px;
+}
+
 .entry-content h2,
 .page-content h2,
 .site-main h2 { font-size: 26px; text-align: center; }
