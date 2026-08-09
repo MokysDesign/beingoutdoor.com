@@ -95,6 +95,7 @@
     }
     .trip-card .badge.hub { background: rgba(42, 138, 138, 0.92); }
     .trip-card .badge.planned { background: rgba(107, 101, 96, 0.78); color: #faf9f6; }
+    .trip-card .badge.done { background: rgba(212, 130, 38, 0.92); }
     .trip-card .title-overlay {
       position: absolute;
       bottom: 0;
@@ -216,14 +217,32 @@
       <div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
 
       <p class="planning-intro">
-        Everything here is on the board, not yet done. <strong>Nature and city cards</strong> are destinations I'm planning to visit. <strong>Trip ideas</strong> below are the routes I'd build by stringing those destinations together — the next step before a trip is real.
+        Everything that's on the radar — destinations I've been but haven't built a full page for yet, and destinations I'm planning. <strong>Trip ideas</strong> at the bottom are the routes I'd build by stringing those destinations together.
       </p>
 
       <!-- ===== NATURE on the board ===== -->
       <h2 class="wp-block-heading has-text-align-center" id="nature">Nature</h2>
-      <p class="has-text-align-center section-intro">National parks and routes still on the board.</p>
+      <p class="has-text-align-center section-intro">National parks and routes still on the board, plus places I've been but haven't built a full page for yet.</p>
 
       <div class="trip-grid">
+
+        <a href="/lofoten/" class="trip-card">
+          <span class="badge done">Done</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Lofoten · Norway</span>
+            <span class="title-overlay">Lofoten · Norway</span>
+          </span>
+          <span class="caption">Sharp mountains falling into the sea, fishing villages with red cabins — one trip, fully done. Page coming.</span>
+        </a>
+
+        <a href="/posts/yosemite-np/" class="trip-card is-hub is-done">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <img src="/images/2015/09/dscn6326.jpg" alt="Yosemite Valley" />
+            <span class="title-overlay">Yosemite</span>
+          </span>
+          <span class="caption">A place I keep coming back to — hikes, sections, and seasons, added one visit at a time.</span>
+        </a>
 
         <a href="#" class="trip-card is-hub is-planned">
           <span class="badge hub">Hub</span>
@@ -233,7 +252,6 @@
           </span>
           <span class="caption">2,000+ sandstone arches near Moab — Delicate Arch, Devils Garden, the Windows.</span>
         </a>
-
         <a href="#" class="trip-card is-hub is-planned">
           <span class="badge hub">Hub</span>
           <span class="thumb">
@@ -350,7 +368,7 @@
 
       <div class="trip-grid">
 
-        <a href="#" class="trip-card is-hub is-planned">
+        <a href="#" class="trip-card is-hub is-done">
           <span class="badge hub">Hub</span>
           <span class="thumb">
             <span class="gray-placeholder">Boston</span>
@@ -377,13 +395,13 @@
           <span class="caption">Neighborhoods, beaches, and the drives between them — LA rewards a car and a few extra days.</span>
         </a>
 
-        <a href="#" class="trip-card is-hub is-planned">
+        <a href="#" class="trip-card is-hub is-done">
           <span class="badge hub">Hub</span>
           <span class="thumb">
             <span class="gray-placeholder">Munich</span>
             <span class="title-overlay">Munich</span>
           </span>
-          <span class="caption">Bavaria's capital — beer halls, the Englischer Garten, and day trips into the Alps.</span>
+          <span class="caption">Done — beer halls, the Englischer Garten, and the Alps an hour away.</span>
         </a>
 
         <a href="#" class="trip-card is-hub is-planned">
@@ -395,6 +413,24 @@
           <span class="caption">A city that opens straight into fjord and forest — the launchpad for a Norway trip.</span>
         </a>
 
+        <a href="#" class="trip-card is-hub is-done">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Paris</span>
+            <span class="title-overlay">Paris</span>
+          </span>
+          <span class="caption">Done — neighborhoods over landmarks, day trips to Versailles and Giverny.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-done">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Salzburg</span>
+            <span class="title-overlay">Salzburg</span>
+          </span>
+          <span class="caption">Done — old town, the river, and the surrounding lakes and mountains.</span>
+        </a>
+
         <a href="#" class="trip-card is-hub is-planned">
           <span class="badge hub">Hub</span>
           <span class="thumb">
@@ -402,6 +438,15 @@
             <span class="title-overlay">San Diego</span>
           </span>
           <span class="caption">Best weather in the country — Balboa Park, the coast, and easy access to the desert in under two hours.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-done">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">San Francisco</span>
+            <span class="title-overlay">San Francisco</span>
+          </span>
+          <span class="caption">Done — neighborhoods, day trips down the coast, and the drives that make it worth more than a weekend.</span>
         </a>
 
         <a href="#" class="trip-card is-hub is-planned">
@@ -422,6 +467,39 @@
           <span class="caption">Neighborhoods over landmarks — Shibuya, Shimokitazawa, day trips to Kamakura and Hakone.</span>
         </a>
 
+        <a href="#" class="trip-card is-hub is-done">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Vienna</span>
+            <span class="title-overlay">Vienna</span>
+          </span>
+          <span class="caption">Done — cafés, music halls, and the Wienerwald on the edge of town.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-done">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Zurich</span>
+            <span class="title-overlay">Zurich</span>
+          </span>
+          <span class="caption">Done — old town, lake, and the Alps an hour away.</span>
+        </a>
+
+      </div>
+
+      <!-- ===== Trips on the board ===== -->
+      <h2 class="wp-block-heading has-text-align-center" id="trips">Trips</h2>
+      <p class="has-text-align-center section-intro">Multi-stop trips, taken or being built. A trip card points to the places it rolls through.</p>
+
+      <div class="trip-grid">
+        <a href="/trips/south-florida/" class="trip-card">
+          <span class="badge done">Done</span>
+          <span class="thumb">
+            <span class="gray-placeholder">South Florida Trip</span>
+            <span class="title-overlay">South Florida</span>
+          </span>
+          <span class="caption">Done — Miami, Key West, the Everglades, and a rocket launch at Kennedy Space Center.</span>
+        </a>
       </div>
 
       <!-- ===== Trip ideas ===== -->
