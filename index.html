@@ -3,37 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>being outdoor — Travel diary & photography</title>
-  <meta name="description" content="Travel diary and photography — every trip, every camping setup, and what I would do again.">
+  <title>being outdoor — Travel planning & diary</title>
+  <meta name="description" content="Travel planning and diary — nature, cities, and the trips I'm building toward. Most are still on the board; new ones added as we go.">
   <meta name="theme-color" content="#2a8a8a">
-  <meta property="og:title" content="being outdoor — Travel diary & photography">
-  <meta property="og:description" content="Travel diary and photography — every trip, every camping setup, and what I would do again.">
+  <meta property="og:title" content="being outdoor — Travel planning & diary">
+  <meta property="og:description" content="Travel planning and diary — nature, cities, and the trips I'm building toward. Most are still on the board; new ones added as we go.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://beingoutdoor.com/">
   <meta property="og:image" content="https://beingoutdoor.com/images/2026/07/about-lake.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="being outdoor — Travel diary & photography">
-  <meta name="twitter:description" content="Travel diary and photography — every trip, every camping setup, and what I would do again.">
+  <meta name="twitter:title" content="being outdoor — Travel planning & diary">
+  <meta name="twitter:description" content="Travel planning and diary — nature, cities, and the trips I'm building toward. Most are still on the board; new ones added as we go.">
   <meta name="twitter:image" content="https://beingoutdoor.com/images/2026/07/about-lake.jpg">
   <link rel="canonical" href="https://beingoutdoor.com/">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Homepage badge + hub styles (scoped, additive — won't affect other pages) */
+    .trip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin: 1.5em auto 2.5em;
+      max-width: 1080px;
+    }
+    .trip-card {
+      flex: 0 0 calc(25% - 11px);
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 2px 12px rgba(31, 29, 27, 0.06);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      position: relative;
+    }
+    .trip-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(31, 29, 27, 0.10);
+      text-decoration: none;
+    }
+    .trip-card.is-placeholder { cursor: default; }
+    .trip-card.is-placeholder:hover {
+      transform: none;
+      box-shadow: 0 2px 12px rgba(31, 29, 27, 0.06);
+    }
+    .trip-card .thumb {
+      position: relative;
+      display: block;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #e9e6e1;
+    }
+    .trip-card.is-planned .thumb img {
+      filter: grayscale(60%) brightness(0.92);
+      opacity: 0.78;
+    }
+    .trip-card .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .trip-card.is-placeholder .thumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #e7e4df 0%, #d8d4ce 100%);
+    }
+    .trip-card.is-placeholder .thumb .ph-text {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95em;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+      letter-spacing: 0.02em;
+    }
+    .trip-card .badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffffff;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      z-index: 2;
+    }
+    .trip-card .badge.done   { background: rgba(212, 130, 38, 0.92); }
+    .trip-card .badge.planned{ background: rgba(107, 101, 96, 0.78); color: #faf9f6; }
+    .trip-card .badge.hub    { background: rgba(42, 138, 138, 0.92); }
+    .trip-card .title-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 18px 8px 8px;
+      text-align: center;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.92em;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+    }
+    .trip-card.is-hub .title-overlay {
+      color: #ffffff;
+      background: linear-gradient(to top, rgba(20, 60, 60, 0.78), rgba(20, 60, 60, 0));
+    }
+    .trip-card .caption {
+      display: block;
+      padding: 10px 12px 14px;
+      font-size: 0.85em;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+    .trip-card.is-placeholder .caption {
+      color: #8a847d;
+      font-style: italic;
+    }
+    .section-intro {
+      max-width: 720px;
+      margin: -0.5em auto 1em;
+      color: var(--muted);
+      font-size: 0.98em;
+      text-align: center;
+    }
+    .camping-teaser {
+      max-width: 720px;
+      margin: 2.5em auto 0;
+      padding: 22px 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .camping-teaser p { margin: 0 0 8px; color: var(--muted); }
+    .camping-teaser a {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 8px 18px;
+      background: var(--accent);
+      color: #ffffff;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.92em;
+    }
+    .camping-teaser a:hover { background: var(--accent-dark); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .trip-card { flex: 0 0 calc(50% - 7px); }
+    }
+    @media (max-width: 520px) {
+      .trip-card { flex: 0 0 100%; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
         <a class="site-title" href="./">being outdoor</a>
-        <span class="tagline">Travel diary & photography</span>
+        <span class="tagline">Travel planning & diary</span>
       </div>
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="./">Home</a>
-        <a href="./#off-road-adventures">Off-Road Adventures</a>
-        <a href="./#road-trips">Road Trips</a>
-        <a href="./#city-tours">City Tours</a>
-        <a href="apps-i-use/">Apps I use</a>
+        <a href="./#nature">Nature</a>
+        <a href="./#city">City</a>
+        <a href="./#trips">Trips</a>
+        <a href="./camping/">Camping</a>
         <a href="./about-this-blog/">About</a>
         <a href="https://surroundyou.me/shop-wall-art/" target="_blank" rel="noopener">Shop</a>
       </nav>
@@ -44,11 +189,11 @@
   <main class="site-main">
     <!-- wp:cover {"overlayColor":"primary","minHeight":320,"align":"full"} -->
 <div class="wp-block-cover alignfull" style="min-height:320px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:heading {"textAlign":"center","level":1,"style":{"color":{"text":"#ffffff"}}} -->
-<h1 class="wp-block-heading has-text-align-center" style="color:#ffffff">Explore the World</h1>
+<h1 class="wp-block-heading has-text-align-center" style="color:#ffffff">Planning the trips, then doing them</h1>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center","style":{"color":{"text":"#ffffff"}}} -->
-<p class="has-text-align-center" style="color:#ffffff">Off-road overland routes, city tours, and everything in between - the places we've been and the ones we're still planning.</p>
+<p class="has-text-align-center" style="color:#ffffff">Nature routes, cities I keep coming back to, and the longer trips I'm building toward. Most are still on the board — done ones get the badge, planned ones get the work.</p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:cover -->
 
@@ -63,7 +208,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">Off-road routes and city tours - every adventure on one map. Click any pin to explore the trip.</p>
+<p class="has-text-align-center">Nature, cities and trips — every stop on one map. Click any pin to explore.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:html -->
@@ -75,15 +220,68 @@
 <!-- /wp:separator -->
 
 <!-- wp:heading {"textAlign":"center","level":2} -->
-<h2 class="wp-block-heading has-text-align-center" id="off-road-adventures">Off-Road Adventures</h2>
+<h2 class="wp-block-heading has-text-align-center" id="nature">Nature</h2>
 <!-- /wp:heading -->
 
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center section-intro">Places I keep returning to — and routes I'm planning. Hubs hold multiple visits; single trips are one trip, done or in the works.</p>
+<!-- /wp:paragraph -->
+
 <!-- wp:html -->
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:1em auto;max-width:1013px">
-<a href="/valley-of-fire/" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#ffffff"><img src="/images/2026/07/valley-of-fire-road.jpg" alt="Valley of Fire road" style="width:100%;height:100%;object-fit:cover;display:block;margin:0" /><span style="position:absolute;bottom:6px;left:0;right:0;text-align:center;color:#ffffff;font-weight:700;font-size:.9em;text-shadow:0 1px 4px rgba(0,0,0,.7)">Trip 01 · Valley of Fire</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Nevada · ~520 mi · 3-4 days - blazing red sandstone, petroglyphs, alien desert an hour from Vegas. Any stock SUV or truck · best Oct-Apr.</span></a>
-<a href="/calico-ghost-town/" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#ffffff"><img src="/images/2026/07/calico-ghost-town.jpg" alt="Calico Ghost Town" style="width:100%;height:100%;object-fit:cover;display:block;margin:0" /><span style="position:absolute;bottom:6px;left:0;right:0;text-align:center;color:#ffffff;font-weight:700;font-size:.9em;text-shadow:0 1px 4px rgba(0,0,0,.7)">Trip 02 · Calico Ghost Town</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Mojave, CA · ~390 mi · 2-3 days - an 1881 silver ghost town ringed by SoCal's best OHV trails. Stock 4x4; lifted rig only for the crawls · best Oct-Apr.</span></a>
-<a href="/white-rim-road/" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#ffffff"><img src="/images/2026/07/canyonland-arch.jpg" alt="Canyonlands White Rim" style="width:100%;height:100%;object-fit:cover;display:block;margin:0" /><span style="position:absolute;bottom:6px;left:0;right:0;text-align:center;color:#ffffff;font-weight:700;font-size:.9em;text-shadow:0 1px 4px rgba(0,0,0,.7)">Trip 03 · White Rim Road</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Canyonlands, UT · ~850 mi · 4-5 days - the legendary 100-mile mesa loop. HC 4WD + low range required, permit needed, no dogs · best Mar-May & Sep-Nov.</span></a>
-<a href="/lost-coast-overland/" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#ffffff"><img src="/images/2026/07/lost-coast.jpg" alt="Lost Coast Overland" style="width:100%;height:100%;object-fit:cover;display:block;margin:0" /><span style="position:absolute;bottom:6px;left:0;right:0;text-align:center;color:#ffffff;font-weight:700;font-size:.9em;text-shadow:0 1px 4px rgba(0,0,0,.7)">Trip 04 · Lost Coast Overland</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">N. California · ~220 mi · 2-4 days - redwoods, the King Range and beach camps on the remotest coast. High clearance, 4x4 for Usal Rd · late May-Oct.</span></a>
+<div class="trip-grid">
+  <a href="/posts/yosemite-np/" class="trip-card is-hub">
+    <span class="badge hub">Hub</span>
+    <span class="thumb">
+      <img src="/images/2015/09/dscn6326.jpg" alt="Yosemite Valley" />
+      <span class="title-overlay">Yosemite</span>
+    </span>
+    <span class="caption">A place I keep coming back to — hikes, sections, and seasons, added one visit at a time.</span>
+  </a>
+
+  <a href="/lofoten/" class="trip-card is-hub is-planned">
+    <span class="badge planned">Planned</span>
+    <span class="thumb">
+      <img src="/images/2026/07/about-lake.jpg" alt="Lofoten landscape placeholder" />
+      <span class="title-overlay">Lofoten · Norway</span>
+    </span>
+    <span class="caption">On the board — sharp mountains, fjord coastline, fishing villages. The next place I want to return to.</span>
+  </a>
+
+  <a href="/valley-of-fire/" class="trip-card">
+    <span class="badge done">Done</span>
+    <span class="thumb">
+      <img src="/images/2026/07/valley-of-fire-road.jpg" alt="Valley of Fire road" />
+      <span class="title-overlay">Valley of Fire</span>
+    </span>
+    <span class="caption">Nevada · ~520 mi · 3–4 days — blazing red sandstone, petroglyphs, alien desert an hour from Vegas. Any stock SUV or truck · best Oct–Apr.</span>
+  </a>
+
+  <a href="/calico-ghost-town/" class="trip-card">
+    <span class="badge done">Done</span>
+    <span class="thumb">
+      <img src="/images/2026/07/calico-ghost-town.jpg" alt="Calico Ghost Town" />
+      <span class="title-overlay">Calico Ghost Town</span>
+    </span>
+    <span class="caption">Mojave, CA · ~390 mi · 2–3 days — an 1881 silver ghost town ringed by SoCal's best OHV trails. Stock 4x4; lifted only for the crawls · best Oct–Apr.</span>
+  </a>
+
+  <a href="/white-rim-road/" class="trip-card is-planned">
+    <span class="badge planned">Planned</span>
+    <span class="thumb">
+      <img src="/images/2026/07/canyonland-arch.jpg" alt="Canyonlands White Rim" />
+      <span class="title-overlay">White Rim Road</span>
+    </span>
+    <span class="caption">Canyonlands, UT · ~850 mi · 4–5 days — the legendary 100-mile mesa loop. HC 4WD + low range required, permit needed · best Mar–May & Sep–Nov.</span>
+  </a>
+
+  <a href="/lost-coast-overland/" class="trip-card is-planned">
+    <span class="badge planned">Planned</span>
+    <span class="thumb">
+      <img src="/images/2026/07/lost-coast.jpg" alt="Lost Coast Overland" />
+      <span class="title-overlay">Lost Coast Overland</span>
+    </span>
+    <span class="caption">N. California · ~220 mi · 2–4 days — redwoods, the King Range and beach camps on the remotest coast. HC + 4x4 for Usal Rd · late May–Oct.</span>
+  </a>
 </div>
 <!-- /wp:html -->
 
@@ -91,21 +289,33 @@
 <hr class="wp-block-separator has-alpha-channel-opacity is-style-wide" />
 <!-- /wp:separator -->
 
-<!-- wp:separator {"className":"is-style-wide"} -->
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide" />
-<!-- /wp:separator -->
-
 <!-- wp:heading {"textAlign":"center","level":2} -->
-<h2 class="wp-block-heading has-text-align-center" id="road-trips">Road Trips</h2>
+<h2 class="wp-block-heading has-text-align-center" id="city">City</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">Multi-day driving itineraries — what the road is like, where to stop, and what works with kids. More coming soon.</p>
+<p class="has-text-align-center section-intro">Cities I keep returning to. Hubs hold multiple visits — markets, museums, day trips across stays.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:html -->
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:1em auto;max-width:1013px">
-<a href="#" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit;cursor:default"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#d8d6d2"><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#ffffff;font-weight:700;font-size:1em;text-align:center;text-shadow:0 1px 4px rgba(0,0,0,.25);padding:8px">Image needed</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45;color:#6b6560">Drop a road trip here — name, distance, duration, and one line on what makes it work.</span></a>
+<div class="trip-grid">
+  <a href="/london/" class="trip-card is-hub">
+    <span class="badge hub">Hub</span>
+    <span class="thumb">
+      <img src="/images/2026/07/tower-bridge.jpg" alt="London Tower Bridge" />
+      <span class="title-overlay">London &amp; Beyond</span>
+    </span>
+    <span class="caption">A place I keep returning to — landmarks, markets, museums and day trips across London and beyond.</span>
+  </a>
+
+  <a href="/berlin/" class="trip-card is-hub">
+    <span class="badge hub">Hub</span>
+    <span class="thumb">
+      <img src="/images/2026/07/berlin-brandenburg-gate.jpg" alt="Berlin Brandenburg Gate" />
+      <span class="title-overlay">Berlin &amp; Beyond</span>
+    </span>
+    <span class="caption">A place I keep returning to — history, street-level Berlin, and the day trips that make each stay different.</span>
+  </a>
 </div>
 <!-- /wp:html -->
 
@@ -114,17 +324,22 @@
 <!-- /wp:separator -->
 
 <!-- wp:heading {"textAlign":"center","level":2} -->
-<h2 class="wp-block-heading has-text-align-center" id="city-tours">City Tours</h2>
+<h2 class="wp-block-heading has-text-align-center" id="trips">Trips</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">Not every adventure needs a dirt road - exploring the world's great cities, one guide at a time.</p>
+<p class="has-text-align-center section-intro">Road trips and longer vacations — one trip at a time. Each trip is built from nature and city stops, so a road trip card points to the places it rolls through.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:html -->
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:1em auto;max-width:1013px">
-<a href="/london/" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#ffffff"><img src="/images/2026/07/big-ben.jpg" alt="Big Ben" style="position:absolute;top:0;left:0;width:50%;height:50%;object-fit:cover;opacity:.35;margin:0" /><img src="/images/2026/07/buckingham-palace.jpg" alt="Buckingham Palace" style="position:absolute;top:0;right:0;width:50%;height:50%;object-fit:cover;opacity:.35;margin:0" /><img src="/images/2026/07/tower-of-london.jpg" alt="Tower of London" style="position:absolute;bottom:0;left:0;width:50%;height:50%;object-fit:cover;opacity:.35;margin:0" /><img src="/images/2026/07/st-pauls.jpg" alt="St Paul's Cathedral" style="position:absolute;bottom:0;right:0;width:50%;height:50%;object-fit:cover;opacity:.35;margin:0" /><img src="/images/2026/07/tower-bridge.jpg" alt="Tower Bridge" style="position:absolute;top:25%;left:25%;width:50%;height:50%;object-fit:cover;margin:0;box-shadow:0 2px 14px rgba(0,0,0,.35)" /><span style="position:absolute;bottom:6px;left:0;right:0;text-align:center;color:#2e312f;font-weight:700;font-size:.9em">London & Beyond</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Landmarks, markets, museums and day trips across London and beyond.</span></a>
-<a href="/berlin/" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#ffffff"><img src="/images/2026/07/berlin-brandenburg-gate.jpg" alt="Brandenburg Gate" style="position:absolute;top:0;left:0;width:50%;height:50%;object-fit:cover;opacity:.35;margin:0" /><img src="/images/2026/07/berlin-reichstag.jpg" alt="Reichstag dome" style="position:absolute;top:0;right:0;width:50%;height:50%;object-fit:cover;opacity:.35;margin:0" /><img src="/images/2026/07/berlin-wall.jpg" alt="Berlin Wall" style="position:absolute;bottom:0;left:0;width:50%;height:50%;object-fit:cover;opacity:.35;margin:0" /><img src="/images/2026/07/berlin-holocaust-memorial.jpg" alt="Holocaust Memorial" style="position:absolute;bottom:0;right:0;width:50%;height:50%;object-fit:cover;opacity:.35;margin:0" /><img src="/images/2026/07/berlin-cathedral.jpg" alt="Berlin Cathedral" style="position:absolute;top:25%;left:25%;width:50%;height:50%;object-fit:cover;margin:0;box-shadow:0 2px 14px rgba(0,0,0,.35)" /><span style="position:absolute;bottom:6px;left:0;right:0;text-align:center;color:#ffffff;font-weight:700;font-size:.9em;text-shadow:0 1px 4px rgba(0,0,0,.7)">Berlin</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Landmarks, history and street-level Berlin - coming soon.</span></a>
+<div class="trip-grid">
+  <a href="#" class="trip-card is-placeholder is-planned" tabindex="-1" aria-hidden="true">
+    <span class="badge planned">Planned</span>
+    <span class="thumb">
+      <span class="ph-text">First trip coming soon</span>
+    </span>
+    <span class="caption">The first trip will roll together a few nature stops. Details land here once the route is locked.</span>
+  </a>
 </div>
 <!-- /wp:html -->
 
@@ -132,32 +347,26 @@
 <hr class="wp-block-separator has-alpha-channel-opacity is-style-wide" />
 <!-- /wp:separator -->
 
-<!-- wp:heading {"textAlign":"center","level":2} -->
-<h2 class="wp-block-heading has-text-align-center">Camping Set-Ups</h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">Every trip card above says what it really takes - short version: <strong>Valley of Fire</strong> works in any stock SUV or truck. <strong>Calico</strong> wants a stock high-clearance 4x4 (a lifted rig with low range only if you're doing the rock crawls). <strong>White Rim</strong> requires true high-clearance 4WD with low range - park rules, no AWD crossovers. <strong>Lost Coast</strong> needs high clearance, with 4x4 strongly recommended for Usal Road in the dry season.</p>
-<!-- /wp:paragraph -->
-
 <!-- wp:html -->
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:1em auto;max-width:1013px">
-<a href="/camping/truck" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#ffffff"><img src="/images/2026/07/truck-rooftop-tent.jpg" alt="Truck with rooftop tent" style="width:100%;height:100%;object-fit:cover;display:block;margin:0" /><span style="position:absolute;bottom:6px;left:0;right:0;text-align:center;color:#ffffff;font-weight:700;font-size:.9em;text-shadow:0 1px 4px rgba(0,0,0,.7)">Truck</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Pickup with a rooftop tent or bed camper - hauls all the gear and handles every trip on this site.</span></a>
-<a href="/camping/jeep-rubicon" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#ffffff"><img src="/images/2026/07/jeep-rubicon.jpg" alt="Jeep Rubicon off-roading" style="width:100%;height:100%;object-fit:cover;display:block;margin:0" /><span style="position:absolute;bottom:6px;left:0;right:0;text-align:center;color:#ffffff;font-weight:700;font-size:.9em;text-shadow:0 1px 4px rgba(0,0,0,.7)">Jeep Rubicon · Lifted</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Low range, lockers and clearance - the set-up for White Rim and the rock-crawl loops.</span></a>
-<a href="/camping/suv" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#ffffff"><img src="/images/2026/07/suv-pajero.jpg" alt="SUV at campsite" style="width:100%;height:100%;object-fit:cover;display:block;margin:0" /><span style="position:absolute;bottom:6px;left:0;right:0;text-align:center;color:#ffffff;font-weight:700;font-size:.9em;text-shadow:0 1px 4px rgba(0,0,0,.7)">SUV</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">A stock high-clearance SUV covers Valley of Fire and the main trails - tent camping from the trunk.</span></a>
-<a href="/camping/camper-van" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#ffffff"><img src="/images/2026/07/camper-van.jpg" alt="Camper van near rocks" style="width:100%;height:100%;object-fit:cover;display:block;margin:0" /><span style="position:absolute;bottom:6px;left:0;right:0;text-align:center;color:#ffffff;font-weight:700;font-size:.9em;text-shadow:0 1px 4px rgba(0,0,0,.7)">Camper Van</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Comfort at basecamp - great for the developed campgrounds; leave the rough trails to a 4x4.</span></a>
+<div class="camping-teaser">
+  <p>Curious what I drive and how I set up camp — truck, Jeep, SUV, camper van?</p>
+  <a href="./camping/">See Camping Set-Ups</a>
 </div>
 <!-- /wp:html -->
 
 <!-- wp:spacer {"height":"48px"} -->
 <div style="height:48px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Curious what I use to plan trips, navigate, and edit photos? See my <a href="./apps-i-use/">Apps I use</a> list.</p>
+<!-- /wp:paragraph -->
     </article>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© being outdoor — Travel diary & photography</p>
+      <p>© being outdoor — Travel planning & diary</p>
     </div>
   </footer>
 
