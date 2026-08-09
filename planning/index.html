@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planning Board — being outdoor</title>
+  <meta name="description" content="The planning board — destinations on the way, trip ideas to assemble, and the work before a trip becomes a story.">
+  <meta name="theme-color" content="#2a8a8a">
+  <meta property="og:title" content="Planning Board — being outdoor">
+  <meta property="og:description" content="The planning board — destinations on the way, trip ideas to assemble, and the work before a trip becomes a story.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://beingoutdoor.com/planning/">
+  <meta property="og:image" content="https://beingoutdoor.com/images/2026/07/about-lake.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Planning Board — being outdoor">
+  <meta name="twitter:description" content="The planning board — destinations on the way, trip ideas to assemble, and the work before a trip becomes a story.">
+  <meta name="twitter:image" content="https://beingoutdoor.com/images/2026/07/about-lake.jpg">
+  <link rel="canonical" href="https://beingoutdoor.com/planning/">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .planning-intro {
+      max-width: 720px;
+      margin: 0 auto 2em;
+      color: var(--ink);
+      font-size: 1.02em;
+      line-height: 1.75;
+      text-align: center;
+    }
+    .planning-intro strong { color: var(--accent-dark); }
+    .trip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin: 1.5em auto 2.5em;
+      max-width: 1200px;
+    }
+    .trip-card {
+      flex: 0 0 calc(20% - 12px);
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 2px 12px rgba(31, 29, 27, 0.06);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      position: relative;
+    }
+    .trip-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(31, 29, 27, 0.10);
+      text-decoration: none;
+    }
+    .trip-card .thumb {
+      position: relative;
+      display: block;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #e9e6e1;
+    }
+    .trip-card .gray-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #d6d2cc 0%, #b8b3ac 100%);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95em;
+      text-align: center;
+      padding: 10px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+      letter-spacing: 0.01em;
+    }
+    .trip-card .badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffffff;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      z-index: 2;
+    }
+    .trip-card .badge.hub { background: rgba(42, 138, 138, 0.92); }
+    .trip-card .badge.planned { background: rgba(107, 101, 96, 0.78); color: #faf9f6; }
+    .trip-card .title-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 18px 8px 8px;
+      text-align: center;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.88em;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+      line-height: 1.25;
+    }
+    .trip-card .caption {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 12px 14px;
+      font-size: 0.85em;
+      line-height: 1.5;
+      color: var(--ink);
+      text-align: center !important;
+      margin: 0;
+    }
+    .section-intro {
+      max-width: 720px;
+      margin: -0.5em auto 1em;
+      color: var(--muted);
+      font-size: 0.98em;
+      text-align: center;
+    }
+    .trip-idea {
+      max-width: 760px;
+      margin: 0 auto 18px;
+      padding: 22px 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(31, 29, 27, 0.04);
+      text-align: center;
+    }
+    .trip-idea h3 {
+      margin: 0 0 8px;
+      color: var(--accent-dark);
+      font-size: 1.15em;
+    }
+    .trip-idea .stops {
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .trip-idea .stops li {
+      padding: 5px 11px;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border-radius: 999px;
+      font-size: 0.85em;
+      font-weight: 600;
+    }
+    .trip-idea .note {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.9em;
+      font-style: italic;
+    }
+    .empty-ideas {
+      max-width: 640px;
+      margin: 0 auto 2em;
+      padding: 24px;
+      text-align: center;
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      color: var(--muted);
+    }
+    @media (max-width: 1100px) { .trip-card { flex: 0 0 calc(25% - 11px); } }
+    @media (max-width: 900px)  { .trip-card { flex: 0 0 calc(33.333% - 10px); } }
+    @media (max-width: 600px)  { .trip-card { flex: 0 0 calc(50% - 7px); } }
+    @media (max-width: 420px)  { .trip-card { flex: 0 0 100%; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="site-title" href="../">being outdoor</a>
+        <span class="tagline">Travel planning & diary</span>
+      </div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../#nature">Nature</a>
+        <a href="../#city">City</a>
+        <a href="../#trips">Trips</a>
+        <a href="./">Planning</a>
+        <a href="../camping/">Camping</a>
+        <a href="../about-this-blog/">About</a>
+        <a href="https://surroundyou.me/shop-wall-art/" target="_blank" rel="noopener">Shop</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <!-- wp:cover {"overlayColor":"primary","minHeight":280,"align":"full"} -->
+<div class="wp-block-cover alignfull" style="min-height:280px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:heading {"textAlign":"center","level":1,"style":{"color":{"text":"#ffffff"}}} -->
+<h1 class="wp-block-heading has-text-align-center" style="color:#ffffff">Planning Board</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center","style":{"color":{"text":"#ffffff"}}} -->
+<p class="has-text-align-center" style="color:#ffffff">Destinations on the way, and trip ideas to assemble — the work before a trip becomes a story.</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:cover -->
+
+    <article class="container page-content">
+      <div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+
+      <p class="planning-intro">
+        Everything here is on the board, not yet done. <strong>Nature and city cards</strong> are destinations I'm planning to visit. <strong>Trip ideas</strong> below are the routes I'd build by stringing those destinations together — the next step before a trip is real.
+      </p>
+
+      <!-- ===== NATURE on the board ===== -->
+      <h2 class="wp-block-heading has-text-align-center" id="nature">Nature</h2>
+      <p class="has-text-align-center section-intro">National parks and routes still on the board.</p>
+
+      <div class="trip-grid">
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Arches NP</span>
+            <span class="title-overlay">Arches NP</span>
+          </span>
+          <span class="caption">2,000+ sandstone arches near Moab — Delicate Arch, Devils Garden, the Windows.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Bryce Canyon</span>
+            <span class="title-overlay">Bryce Canyon</span>
+          </span>
+          <span class="caption">Hoodoos, rim hikes, and the darkest night skies in the National Park system.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Death Valley</span>
+            <span class="title-overlay">Death Valley</span>
+          </span>
+          <span class="caption">Below sea level, above 11,000 ft — badwater, Titus Canyon, Ubehebe.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Escalante · Grand Staircase</span>
+            <span class="title-overlay">Escalante</span>
+          </span>
+          <span class="caption">Slot canyons, slickrock, and the Hole-in-the-Rock Road.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Grand Canyon</span>
+            <span class="title-overlay">Grand Canyon</span>
+          </span>
+          <span class="caption">South Rim, Bright Angel, the North Rim if you've got the time.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Joshua Tree NP</span>
+            <span class="title-overlay">Joshua Tree NP</span>
+          </span>
+          <span class="caption">Two deserts meet — granite stacks, Joshua-tree forests, and dark-sky camps.</span>
+        </a>
+
+        <a href="/lost-coast-overland/" class="trip-card is-planned">
+          <span class="badge planned">Planned</span>
+          <span class="thumb">
+            <img src="/images/2026/07/lost-coast.jpg" alt="Lost Coast Overland" />
+            <span class="title-overlay">Lost Coast Overland</span>
+          </span>
+          <span class="caption">N. California · ~220 mi · 2–4 days — redwoods, the King Range and beach camps on the remotest coast.</span>
+        </a>
+
+        <a href="#" class="trip-card is-planned">
+          <span class="badge planned">Planned</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Mojave Desert</span>
+            <span class="title-overlay">Mojave Desert</span>
+          </span>
+          <span class="caption">Kelso Dunes, Cinder Cones, the most empty corners of SoCal. Dispersed camping, stock SUV · best Oct–Apr.</span>
+        </a>
+
+        <a href="#" class="trip-card is-planned">
+          <span class="badge planned">Planned</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Monument Valley</span>
+            <span class="title-overlay">Monument Valley</span>
+          </span>
+          <span class="caption">The iconic mesas on the AZ–UT border — loop drive, the View Hotel at sunset, Navajo-led tours only.</span>
+        </a>
+
+        <a href="/valley-of-fire/" class="trip-card is-planned">
+          <span class="badge planned">Planned</span>
+          <span class="thumb">
+            <img src="/images/2026/07/valley-of-fire-road.jpg" alt="Valley of Fire road" />
+            <span class="title-overlay">Valley of Fire</span>
+          </span>
+          <span class="caption">Nevada · ~520 mi · 3–4 days — blazing red sandstone, petroglyphs, alien desert an hour from Vegas.</span>
+        </a>
+
+        <a href="/white-rim-road/" class="trip-card is-planned">
+          <span class="badge planned">Planned</span>
+          <span class="thumb">
+            <img src="/images/2026/07/canyonland-arch.jpg" alt="Canyonlands White Rim" />
+            <span class="title-overlay">White Rim Road</span>
+          </span>
+          <span class="caption">Canyonlands, UT · ~850 mi · 4–5 days — the legendary 100-mile mesa loop.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Yellowstone &amp; Grand Teton</span>
+            <span class="title-overlay">Yellowstone &amp; Grand Teton</span>
+          </span>
+          <span class="caption">Returning place — geysers, wildlife, and the Tetons a short drive south.</span>
+        </a>
+
+        <a href="#" class="trip-card is-planned">
+          <span class="badge planned">Planned</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Zion</span>
+            <span class="title-overlay">Zion</span>
+          </span>
+          <span class="caption">Angels Landing (permit), the Narrows wading hike, and Canyon Overlook. Park shuttle gets you to every trailhead.</span>
+        </a>
+
+      </div>
+
+      <!-- ===== CITY on the board ===== -->
+      <h2 class="wp-block-heading has-text-align-center" id="city">City</h2>
+      <p class="has-text-align-center section-intro">City hubs still to visit or come back to.</p>
+
+      <div class="trip-grid">
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Boston</span>
+            <span class="title-overlay">Boston</span>
+          </span>
+          <span class="caption">Walkable history — the Freedom Trail, harbor islands, and the start of a New England road trip north.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Las Vegas</span>
+            <span class="title-overlay">Las Vegas</span>
+          </span>
+          <span class="caption">Basecamp city — drive in, sleep there, drive out to Valley of Fire, Death Valley, Grand Canyon, Zion.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Los Angeles</span>
+            <span class="title-overlay">Los Angeles</span>
+          </span>
+          <span class="caption">Neighborhoods, beaches, and the drives between them — LA rewards a car and a few extra days.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Munich</span>
+            <span class="title-overlay">Munich</span>
+          </span>
+          <span class="caption">Bavaria's capital — beer halls, the Englischer Garten, and day trips into the Alps.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Oslo</span>
+            <span class="title-overlay">Oslo</span>
+          </span>
+          <span class="caption">A city that opens straight into fjord and forest — the launchpad for a Norway trip.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">San Diego</span>
+            <span class="title-overlay">San Diego</span>
+          </span>
+          <span class="caption">Best weather in the country — Balboa Park, the coast, and easy access to the desert in under two hours.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Seattle</span>
+            <span class="title-overlay">Seattle</span>
+          </span>
+          <span class="caption">Pike Place, ferries, and the Olympics on the doorstep — a basecamp for rainforest and mountain day trips.</span>
+        </a>
+
+        <a href="#" class="trip-card is-hub is-planned">
+          <span class="badge hub">Hub</span>
+          <span class="thumb">
+            <span class="gray-placeholder">Tokyo</span>
+            <span class="title-overlay">Tokyo</span>
+          </span>
+          <span class="caption">Neighborhoods over landmarks — Shibuya, Shimokitazawa, day trips to Kamakura and Hakone.</span>
+        </a>
+
+      </div>
+
+      <!-- ===== Trip ideas ===== -->
+      <h2 class="wp-block-heading has-text-align-center" id="trip-ideas">Trip Ideas</h2>
+      <p class="has-text-align-center section-intro">Routes to build by stringing destinations together. Not yet trips — just the shape of one.</p>
+
+      <div class="trip-idea">
+        <h3>Southwest Loop</h3>
+        <ul class="stops">
+          <li>Las Vegas</li>
+          <li>Valley of Fire</li>
+          <li>Zion</li>
+          <li>Bryce Canyon</li>
+          <li>Capitol Reef?</li>
+          <li>Arches</li>
+          <li>Canyonlands</li>
+          <li>Monument Valley</li>
+          <li>Grand Canyon</li>
+          <li>Death Valley</li>
+        </ul>
+        <p class="note">Base in Vegas, day-drive each park. ~10–14 days. Best Apr–May or Sep–Oct.</p>
+      </div>
+
+      <div class="trip-idea">
+        <h3>Pacific Northwest</h3>
+        <ul class="stops">
+          <li>Seattle</li>
+          <li>Olympic NP</li>
+          <li>Mount Rainier?</li>
+          <li>Crater Lake?</li>
+          <li>Redwoods?</li>
+        </ul>
+        <p class="note">Fly into Seattle, rent a car, loop south. ~7–10 days. Best Jun–Sep.</p>
+      </div>
+
+      <div class="trip-idea">
+        <h3>Germany → Denmark → Norway</h3>
+        <ul class="stops">
+          <li>Berlin</li>
+          <li>Munich?</li>
+          <li>Hamburg?</li>
+          <li>Drive into Denmark</li>
+          <li>Ferry to Norway</li>
+          <li>Oslo</li>
+          <li>Drive or train to Lofoten</li>
+        </ul>
+        <p class="note">Multi-modal: drive Germany → Denmark, ferry to Norway, drive Lofoten. ~14 days. Worth thinking through ferry logistics early.</p>
+      </div>
+
+      <div class="empty-ideas">
+        More trip ideas land here as they form. A trip idea is a list of destinations — when the list is locked and the route is real, it becomes a Trip card on the homepage.
+      </div>
+
+      <div style="height:48px" aria-hidden="true" class="wp-block-spacer"></div>
+
+      <p class="has-text-align-center">
+        <a href="../">← Back to Home</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© being outdoor — Travel planning & diary</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+    }
+  </script>
+</body>
+</html>
