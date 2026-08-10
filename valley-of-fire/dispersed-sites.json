@@ -1,0 +1,42 @@
+{
+  "source": "Personal Google Map by Inga — screenshots taken 2026-08-09",
+  "managedBy": "BLM (Bureau of Land Management)",
+  "sites": [
+    {
+      "id": "dispersed-1",
+      "label": "Dispersed Site 1",
+      "coordinates": {
+        "lat": 36.4445,
+        "lng": -114.6756
+      },
+      "details": "6 mi west of park on gravel road, fire pits, unlimited RV length, open year-round, park calls it \"overflow\"."
+    },
+    {
+      "id": "dispersed-2",
+      "label": "Dispersed Site 2",
+      "coordinates": {
+        "lat": 36.4137,
+        "lng": -114.6168
+      },
+      "details": "Just off a dirt road outside the park, 2-3 private spots, rock fire pits, steep sandy hills — perfect for Jeep or ATV."
+    },
+    {
+      "id": "dispersed-3",
+      "label": "Dispersed Site 3",
+      "coordinates": {
+        "lat": 36.4850,
+        "lng": -114.4446
+      },
+      "details": "Near Overton, wide open BLM land, level, quiet, services 7 mi away in Overton, good Verizon coverage."
+    },
+    {
+      "id": "dispersed-4",
+      "label": "Dispersed Site 4",
+      "coordinates": {
+        "lat": 36.5937,
+        "lng": -114.5268
+      },
+      "details": "Near Overton, 30+ sites, open Oct-Jun, great sunrise/sunset views."
+    }
+  ]
+}
