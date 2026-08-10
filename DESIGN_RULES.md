@@ -49,3 +49,27 @@ These are binding rules for every new trip page. They were set in conversation w
 - All trip pages share the same `<header class="site-header">` and `<footer class="site-footer">` blocks
 - The teal accent color is `#2a8a8a` — used for primary buttons, headings on plain-text headers, and the map overlay
 - Hero cover blocks aren't required if no image — a teal `<header>` banner works as a substitute
+
+## When starting a new page (default scaffold)
+
+When asked to build a new trip page from scratch (e.g. "make me a /yosemite/ page"):
+
+1. **Default to a thin scaffold** that mirrors the structure of existing pages (`valley-of-fire/index.html` is the canonical template):
+   - Hero section: text-only teal `<header>` banner unless a cover image is provided
+   - Stats row: 4 squares (Distance · Days · Vehicle · Best Season) — leave blank for Inga to fill
+   - Map section: empty `<div class="map-embed">` placeholder awaiting Inga's Google My Maps URL
+   - "Explore by Theme" section with 3 squares (Camping · Activities · Hikes) using existing theme images
+   - Camping Options: gray squares + `Add description.` until Inga names campgrounds + URLs + photos
+   - Activities: gray squares + `Add description.` until Inga names activities + provides photos
+   - Hikes: gray squares + `Add description.` until Inga names trails + provides AllTrails/photo data
+   - Back to All Trips button at the bottom
+2. **DO NOT** auto-fill tile content with placeholder names like "Trail 1" or fake stats
+3. **DO** use gray squares + `Add description.` text consistently across all 3 tile categories (camping, activities, hikes) — the matching pattern signals "needs your input" cleanly
+4. **DO** leave the page slug to Inga unless explicitly told otherwise
+5. After the scaffold is pushed, say: "Tell me which placeholders to fill in" and wait for input. Don't proactively suggest content.
+6. As Inga provides data one piece at a time (e.g. "Bike Ride Description: ..."):
+   - Edit just that one tile
+   - Verify with grep
+   - Commit + push to the working branch
+   - Continue waiting for the next piece
+7. The full set of design rules above (Maps, Image placeholders, Hike trail tiles, Trail description format, Page chrome) apply throughout this scaffold-then-fill workflow
