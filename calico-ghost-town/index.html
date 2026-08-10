@@ -19,7 +19,18 @@
   <link rel="stylesheet" href="../styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .wp-block-columns.alignwide {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 12px !important;
+    }
+    .wp-block-columns.alignwide > .wp-block-column {
+      flex-basis: auto !important;
+      min-width: 0;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -41,11 +52,8 @@
   </header>
 
   <main class="site-main">
-    <!-- wp:cover {"overlayColor":"primary","minHeight":280,"align":"full"} -->
+  <!-- wp:cover {"overlayColor":"primary","minHeight":280,"align":"full"} -->
 <div class="wp-block-cover alignfull" style="min-height:280px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container">
-<!-- wp:paragraph {"align":"center","style":{"color":{"text":"#aaaaaa"},"typography":{"fontSize":"11px","letterSpacing":"0.25em"}}} -->
-<p class="has-text-align-center" style="color:#aaaaaa;font-size:11px;letter-spacing:0.25em">TRIP 02 - MOJAVE DESERT, CA - ~390 MILES - 2-3 DAYS</p>
-<!-- /wp:paragraph -->
 <!-- wp:heading {"textAlign":"center","level":1,"style":{"color":{"text":"#ffffff"}}} -->
 <h1 class="wp-block-heading has-text-align-center" style="color:#ffffff">Calico Ghost Town and Off-Road Trails</h1>
 <!-- /wp:heading -->
@@ -55,6 +63,8 @@
 </div></div>
 <!-- /wp:cover -->
 
+    <article class="container page-content">
+
 <!-- wp:spacer {"height":"40px"} -->
 <div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
@@ -63,30 +73,30 @@
 <div class="wp-block-columns alignwide">
 <!-- wp:column {"width":"25%"} --><div class="wp-block-column" style="flex-basis:25%">
 <!-- wp:group {"style":{"border":{"width":"1px","style":"solid","color":"#dddddd"},"spacing":{"padding":{"top":"16px","right":"16px","bottom":"16px","left":"16px"}}}} -->
-<div class="wp-block-group" style="border-color:#dddddd;border-style:solid;border-width:1px;padding:16px">
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"10px","letterSpacing":"0.15em"},"color":{"text":"#888888"}}} --><p style="font-size:10px;letter-spacing:0.15em;color:#888888">DISTANCE</p><!-- /wp:paragraph -->
-<!-- wp:paragraph {"style":{"typography":{"fontWeight":"700","fontSize":"20px"}}} --><p style="font-size:20px;font-weight:700">~390 mi</p><!-- /wp:paragraph -->
+<div class="wp-block-group" style="border-color:#dddddd;border-style:solid;border-width:1px;padding:16px;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"10px","letterSpacing":"0.15em"},"color":{"text":"#888888"}}} --><p class="has-text-align-center" style="font-size:10px;letter-spacing:0.15em;color:#888888;margin:0 0 8px">DISTANCE</p><!-- /wp:paragraph -->
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontWeight":"700","fontSize":"20px"}}} --><p class="has-text-align-center" style="font-size:20px;font-weight:700;margin:0">~390 mi</p><!-- /wp:paragraph -->
 </div><!-- /wp:group -->
 </div><!-- /wp:column -->
 <!-- wp:column {"width":"25%"} --><div class="wp-block-column" style="flex-basis:25%">
 <!-- wp:group {"style":{"border":{"width":"1px","style":"solid","color":"#dddddd"},"spacing":{"padding":{"top":"16px","right":"16px","bottom":"16px","left":"16px"}}}} -->
-<div class="wp-block-group" style="border-color:#dddddd;border-style:solid;border-width:1px;padding:16px">
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"10px","letterSpacing":"0.15em"},"color":{"text":"#888888"}}} --><p style="font-size:10px;letter-spacing:0.15em;color:#888888">DAYS</p><!-- /wp:paragraph -->
-<!-- wp:paragraph {"style":{"typography":{"fontWeight":"700","fontSize":"20px"}}} --><p style="font-size:20px;font-weight:700">2-3 days</p><!-- /wp:paragraph -->
+<div class="wp-block-group" style="border-color:#dddddd;border-style:solid;border-width:1px;padding:16px;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"10px","letterSpacing":"0.15em"},"color":{"text":"#888888"}}} --><p class="has-text-align-center" style="font-size:10px;letter-spacing:0.15em;color:#888888;margin:0 0 8px">DAYS</p><!-- /wp:paragraph -->
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontWeight":"700","fontSize":"20px"}}} --><p class="has-text-align-center" style="font-size:20px;font-weight:700;margin:0">2-3 days</p><!-- /wp:paragraph -->
 </div><!-- /wp:group -->
 </div><!-- /wp:column -->
 <!-- wp:column {"width":"25%"} --><div class="wp-block-column" style="flex-basis:25%">
 <!-- wp:group {"style":{"border":{"width":"1px","style":"solid","color":"#dddddd"},"spacing":{"padding":{"top":"16px","right":"16px","bottom":"16px","left":"16px"}}}} -->
-<div class="wp-block-group" style="border-color:#dddddd;border-style:solid;border-width:1px;padding:16px">
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"10px","letterSpacing":"0.15em"},"color":{"text":"#888888"}}} --><p style="font-size:10px;letter-spacing:0.15em;color:#888888">VEHICLE NEEDED</p><!-- /wp:paragraph -->
-<!-- wp:paragraph {"style":{"typography":{"fontWeight":"700","fontSize":"20px"}}} --><p style="font-size:20px;font-weight:700">Stock 4x4 (lifted for crawls)</p><!-- /wp:paragraph -->
+<div class="wp-block-group" style="border-color:#dddddd;border-style:solid;border-width:1px;padding:16px;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"10px","letterSpacing":"0.15em"},"color":{"text":"#888888"}}} --><p class="has-text-align-center" style="font-size:10px;letter-spacing:0.15em;color:#888888;margin:0 0 8px">VEHICLE NEEDED</p><!-- /wp:paragraph -->
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontWeight":"700","fontSize":"20px"}}} --><p class="has-text-align-center" style="font-size:20px;font-weight:700;margin:0">Stock 4x4 (lifted for crawls)</p><!-- /wp:paragraph -->
 </div><!-- /wp:group -->
 </div><!-- /wp:column -->
 <!-- wp:column {"width":"25%"} --><div class="wp-block-column" style="flex-basis:25%">
 <!-- wp:group {"style":{"border":{"width":"1px","style":"solid","color":"#dddddd"},"spacing":{"padding":{"top":"16px","right":"16px","bottom":"16px","left":"16px"}}}} -->
-<div class="wp-block-group" style="border-color:#dddddd;border-style:solid;border-width:1px;padding:16px">
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"10px","letterSpacing":"0.15em"},"color":{"text":"#888888"}}} --><p style="font-size:10px;letter-spacing:0.15em;color:#888888">BEST SEASON</p><!-- /wp:paragraph -->
-<!-- wp:paragraph {"style":{"typography":{"fontWeight":"700","fontSize":"20px"}}} --><p style="font-size:20px;font-weight:700">Oct - Apr</p><!-- /wp:paragraph -->
+<div class="wp-block-group" style="border-color:#dddddd;border-style:solid;border-width:1px;padding:16px;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"10px","letterSpacing":"0.15em"},"color":{"text":"#888888"}}} --><p class="has-text-align-center" style="font-size:10px;letter-spacing:0.15em;color:#888888;margin:0 0 8px">BEST SEASON</p><!-- /wp:paragraph -->
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontWeight":"700","fontSize":"20px"}}} --><p class="has-text-align-center" style="font-size:20px;font-weight:700;margin:0">Oct - Apr</p><!-- /wp:paragraph -->
 </div><!-- /wp:group -->
 </div><!-- /wp:column -->
 </div><!-- /wp:columns -->
@@ -121,10 +131,9 @@
 
 <!-- wp:html -->
 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin:1.5em auto;max-width:1013px">
-<a href="#camping" style="flex:0 0 calc(33.333% - 11px);display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;text-decoration:none;color:#444444;font-weight:700;font-size:1.15em;text-align:center;line-height:1.6">⛺<br>Camping</a>
-<a href="#activities" style="flex:0 0 calc(33.333% - 11px);display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;text-decoration:none;color:#444444;font-weight:700;font-size:1.15em;text-align:center;line-height:1.6">⛏️<br>Activities</a>
-<a href="#trails" style="flex:0 0 calc(33.333% - 11px);display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;text-decoration:none;color:#444444;font-weight:700;font-size:1.15em;text-align:center;line-height:1.6">🚙<br>Off-Road Trails & Hikes</a>
-<a href="#tips" style="flex:0 0 calc(33.333% - 11px);display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;text-decoration:none;color:#444444;font-weight:700;font-size:1.15em;text-align:center;line-height:1.6">ℹ️<br>Tips & Logistics</a>
+<a href="#camping" style="flex:0 0 calc(33.333% - 11px);position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;text-decoration:none"><img src="/images/2026/07/theme-camping.jpg" alt="Camping at Calico Ghost Town" style="width:100%;height:100%;object-fit:cover;display:block;margin:0" /><span style="position:absolute;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#ffffff;font-weight:700;font-size:1.15em;text-align:center;line-height:1.6">Camping</span></a>
+<a href="#activities" style="flex:0 0 calc(33.333% - 11px);position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;text-decoration:none"><img src="/images/2026/07/theme-activities.jpg" alt="Activities at Calico Ghost Town" style="width:100%;height:100%;object-fit:cover;display:block;margin:0;filter:brightness(0.85)" /><span style="position:absolute;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#ffffff;font-weight:700;font-size:1.15em;text-align:center;line-height:1.6">Activities</span></a>
+<a href="#trails" style="flex:0 0 calc(33.333% - 11px);position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;text-decoration:none"><img src="/images/2026/07/theme-hikes.jpg" alt="Off-Road Trails & Hikes at Calico Ghost Town" style="width:100%;height:100%;object-fit:cover;display:block;margin:0;filter:brightness(0.7)" /><span style="position:absolute;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#ffffff;font-weight:700;font-size:1.15em;text-align:center;line-height:1.6">Off-Road Trails & Hikes</span></a>
 </div>
 <!-- /wp:html -->
 
@@ -142,9 +151,9 @@
 
 <!-- wp:html -->
 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:1em auto;max-width:1013px">
-<a href="https://parks.sbcounty.gov/park/calico-ghost-town-regional-park/" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Calico Ghost Town Campground</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">265 sites below the town — full hookups, showers, fire rings; camping includes ghost-town entry. Reserve via San Bernardino County Parks — holiday/event weekends fill up.</span></a>
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">BLM Dispersed · Mule / Owl Canyon</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Free primitive camping on surrounding BLM land — no services, pack everything out. Owl Canyon Campground (~30 min) is the developed budget alternative.</span></span>
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Barstow Hotels</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">10 minutes away — chain hotels, gas, groceries. The no-camp fallback.</span></span>
+<a href="https://parks.sbcounty.gov/park/calico-ghost-town-regional-park/" style="flex:0 0 calc(33.333% - 11px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden"><img src="/images/2026/07/camping-atlatl.jpg" alt="Calico Ghost Town Campground" style="width:100%;height:100%;object-fit:cover;display:block;margin:0" /><span style="position:absolute;bottom:0;left:0;right:0;padding:18px 8px 8px;text-align:center;color:#ffffff;font-weight:700;font-size:.95em;text-shadow:0 1px 4px rgba(0,0,0,.7);background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,0))">Calico Ghost Town Campground</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">265 sites below the town — full hookups, showers, fire rings; camping includes ghost-town entry. Reserve via San Bernardino County Parks — holiday/event weekends fill up.</span></a>
+<span style="flex:0 0 calc(33.333% - 11px);display:block"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden"><img src="/images/2026/07/camping-arch-rock.jpg" alt="BLM Dispersed · Mule / Owl Canyon" style="width:100%;height:100%;object-fit:cover;display:block;margin:0" /><span style="position:absolute;bottom:0;left:0;right:0;padding:18px 8px 8px;text-align:center;color:#ffffff;font-weight:700;font-size:.95em;text-shadow:0 1px 4px rgba(0,0,0,.7);background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,0))">BLM Dispersed · Mule / Owl Canyon</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Free primitive camping on surrounding BLM land — no services, pack everything out. Owl Canyon Campground (~30 min) is the developed budget alternative.</span></span>
+<span style="flex:0 0 calc(33.333% - 11px);display:block"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden"><img src="/images/2026/07/camping-las-vegas-base.jpg" alt="Barstow Hotels" style="width:100%;height:100%;object-fit:cover;display:block;margin:0" /><span style="position:absolute;bottom:0;left:0;right:0;padding:18px 8px 8px;text-align:center;color:#ffffff;font-weight:700;font-size:.95em;text-shadow:0 1px 4px rgba(0,0,0,.7);background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,0))">Barstow Hotels</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">10 minutes away — chain hotels, gas, groceries. The no-camp fallback.</span></span>
 </div>
 <!-- /wp:html -->
 
@@ -154,12 +163,12 @@
 
 <!-- wp:html -->
 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:1em auto;max-width:1013px">
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Maggie Mine Tour</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Descend into an original 1880s silver mine.</span></span>
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Narrow Gauge Railroad</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Ride the Calico & Odessa line around the town.</span></span>
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Gold Panning</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Try your luck on-site.</span></span>
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Mystery Shack</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">The gravity-illusion attraction.</span></span>
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Calico–Vegas OHV Run</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">The annual off-road event, if the timing lines up.</span></span>
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Elmer's Bottle Tree Ranch</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Quirky Route 66 folk-art stop en route.</span></span>
+<span style="flex:0 0 calc(33.333% - 11px);display:block"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#d9d9d9;color:#444444;font-weight:700;font-size:.95em;text-align:center;padding:8px;display:flex;align-items:center;justify-content:center">Maggie Mine Tour</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Descend into an original 1880s silver mine.</span></span>
+<span style="flex:0 0 calc(33.333% - 11px);display:block"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#d9d9d9;color:#444444;font-weight:700;font-size:.95em;text-align:center;padding:8px;display:flex;align-items:center;justify-content:center">Narrow Gauge Railroad</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Ride the Calico & Odessa line around the town.</span></span>
+<span style="flex:0 0 calc(33.333% - 11px);display:block"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#d9d9d9;color:#444444;font-weight:700;font-size:.95em;text-align:center;padding:8px;display:flex;align-items:center;justify-content:center">Gold Panning</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Try your luck on-site.</span></span>
+<span style="flex:0 0 calc(33.333% - 11px);display:block"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#d9d9d9;color:#444444;font-weight:700;font-size:.95em;text-align:center;padding:8px;display:flex;align-items:center;justify-content:center">Mystery Shack</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">The gravity-illusion attraction.</span></span>
+<span style="flex:0 0 calc(33.333% - 11px);display:block"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#d9d9d9;color:#444444;font-weight:700;font-size:.95em;text-align:center;padding:8px;display:flex;align-items:center;justify-content:center">Calico–Vegas OHV Run</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">The annual off-road event, if the timing lines up.</span></span>
+<span style="flex:0 0 calc(33.333% - 11px);display:block"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#d9d9d9;color:#444444;font-weight:700;font-size:.95em;text-align:center;padding:8px;display:flex;align-items:center;justify-content:center">Elmer's Bottle Tree Ranch</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Quirky Route 66 folk-art stop en route.</span></span>
 </div>
 <!-- /wp:html -->
 
@@ -173,26 +182,12 @@
 
 <!-- wp:html -->
 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:1em auto;max-width:1013px">
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Calico Ghost Town Walk</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">0.7 mi · easy · 2–3 hrs — main street, schoolhouse, mine and saloon of the 1881 silver town.</span></span>
-<a href="https://www.trailsoffroad.com/trails/1722-mule-canyon" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Mule Canyon</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">~2 mi RT · easy–moderate · ~1 hr — colorful intro trail; a Kill Bill 2 filming location.</span></a>
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Wall Street Canyon</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">~4 mi RT · moderate 4x4 · ~2 hrs — stunning canyon walls with overlook; 4WD and 33" tires.</span></span>
-<a href="https://www.trailsoffroad.com/US/california/trails/2026-kramer-arch" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Kramer Arch</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">~3 mi RT · hard 4x4 · ~2 hrs — stone arch just big enough to squeeze a vehicle through; high-clearance 4x4 required.</span></a>
-<a href="https://www.trailsoffroad.com/trails/1467-odessa-canyon" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Odessa Canyon</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">~4 mi RT · extreme 4x4 · ~3 hrs — the flagship Calico trail: 7-foot waterfall, rollover spot, tight off-camber canyon.</span></a>
-<a href="https://www.trailsoffroad.com/US/california/regions/calico-ghost-town" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Calico OHV Open Riding</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Miles of trails · varies · half–full day — ATVs, UTVs, dirt bikes welcome; green/red sticker required.</span></a>
-</div>
-<!-- /wp:html -->
-
-<!-- wp:heading {"anchor":"tips"} -->
-<h2 class="wp-block-heading" id="tips">Tips & Logistics</h2>
-<!-- /wp:heading -->
-
-<!-- wp:html -->
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:1em auto;max-width:1013px">
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Entry Fee</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">~$8/adult — free with overnight camping.</span></span>
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">OHV Stickers</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">Green/red sticker required; ATVs and UTVs allowed. Red-sticker OHVs Oct–Jun only.</span></span>
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Vehicle</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">High-clearance 4x4 needed for Kramer Arch and the canyon trails.</span></span>
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Supplies in Barstow</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">3 mi away — gas, groceries and hotel options.</span></span>
-<span style="flex:0 0 calc(25% - 9px);display:block"><span style="display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:8px;background:#d9d9d9;color:#444444;font-weight:700;font-size:.9em;text-align:center;padding:8px">Avoid Summer</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">June–September Mojave heat is brutal — plan Oct–Apr.</span></span>
+<span style="flex:0 0 calc(33.333% - 11px);display:block"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#d9d9d9;color:#444444;font-weight:700;font-size:.95em;text-align:center;padding:8px;display:flex;align-items:center;justify-content:center">Calico Ghost Town Walk</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">0.7 mi - easy - 2 hrs</span></span>
+<a href="https://www.trailsoffroad.com/trails/1722-mule-canyon" style="flex:0 0 calc(33.333% - 11px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#d9d9d9;color:#444444;font-weight:700;font-size:.95em;text-align:center;padding:8px;display:flex;align-items:center;justify-content:center">Mule Canyon</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">2 mi - easy - 1 hr</span></a>
+<span style="flex:0 0 calc(33.333% - 11px);display:block"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#d9d9d9;color:#444444;font-weight:700;font-size:.95em;text-align:center;padding:8px;display:flex;align-items:center;justify-content:center">Wall Street Canyon</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">4 mi - moderate - 2 hrs</span></span>
+<a href="https://www.trailsoffroad.com/US/california/trails/2026-kramer-arch" style="flex:0 0 calc(33.333% - 11px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#d9d9d9;color:#444444;font-weight:700;font-size:.95em;text-align:center;padding:8px;display:flex;align-items:center;justify-content:center">Kramer Arch</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">3 mi - hard - 2 hrs</span></a>
+<a href="https://www.trailsoffroad.com/trails/1467-odessa-canyon" style="flex:0 0 calc(33.333% - 11px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden;background:#d9d9d9;color:#444444;font-weight:700;font-size:.95em;text-align:center;padding:8px;display:flex;align-items:center;justify-content:center">Odessa Canyon</span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">4 mi - extreme - 3 hrs</span></a>
+<a href="https://www.trailsoffroad.com/US/california/regions/calico-ghost-town" style="flex:0 0 calc(25% - 9px);display:block;text-decoration:none;color:inherit"><span style="position:relative;display:block;aspect-ratio:1/1;border-radius:8px;overflow:hidden"><img src="/images/2026/07/hikes-granite-boulder.png" alt="Calico OHV Open Riding" style="width:100%;height:100%;object-fit:cover;display:block;margin:0;filter:grayscale(100%) brightness(1.15)" /><span style="position:absolute;bottom:0;left:0;right:0;padding:18px 8px 8px;text-align:center;color:#ffffff;font-weight:700;font-size:.95em;text-shadow:0 1px 4px rgba(0,0,0,.7);background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,0))">Calico OHV Open Riding</span></span><span style="display:block;padding:6px 2px;font-size:.85em;line-height:1.45">varies - easy - half day</span></a>
 </div>
 <!-- /wp:html -->
 
