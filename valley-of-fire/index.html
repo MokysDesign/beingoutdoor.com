@@ -20,6 +20,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .wp-block-columns.alignwide {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 12px !important;
+    }
+    .wp-block-columns.alignwide > .wp-block-column {
+      flex-basis: auto !important;
+      min-width: 0;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
